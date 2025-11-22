@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
+import 'app_config.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppConfig config;
+
+  const MyApp({super.key, required this.config});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: config.appTitle,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: config.appTitle),
     );
   }
 }
